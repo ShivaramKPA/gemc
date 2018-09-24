@@ -1,0 +1,110 @@
+<gcard>
+
+	
+	<detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/rtpc/rtpc" factory="TEXT" variation="original"/>
+
+	<!-- <option name="ALLRAWS" value="rtpc"/> -->
+	<option name="INTEGRATEDRAW" value="rtpc"/>
+	<option name="SAVE_ALL_MOTHERS" value="0"/>
+	<option name="BANK_VERBOSITY" value="1700"/>
+	
+	<!-- CLAS12 DETECTORS -->
+	<!-- central detectors -->
+	<detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/cnd/cnd"               factory="TEXT" variation="original"/>
+
+	<!--ctof, cad  -->
+	<detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ctof/ctof"      factory="TEXT" variation="cad"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ctof/javacad/"  factory="CAD"/>
+
+    <!--high threshold cherenkov -->
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/htcc/htcc"      factory="TEXT" variation="original"/>
+
+    <!-- magnets -->
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/magnets/solenoid" factory="TEXT" variation="original"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/magnets/cad/"     factory="CAD" />
+
+    <!-- Beamline configuration: FT is used -->
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ft/ft"                 factory="TEXT" variation="FTOn"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/beamline/cadBeamline/" factory="CAD"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/beamline/vacuumLine/"  factory="CAD"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/beamline/beamline"     factory="TEXT" variation="FTOn"/>
+
+
+    <!-- forward carriage -->
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/fc/forwardCarriage" factory="TEXT" variation="original"/>
+
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/dc/dc"              factory="TEXT" variation="java"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ftof/ftof"          factory="TEXT" variation="java"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ec/ec"              factory="TEXT" variation="java"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/pcal/pcal"          factory="TEXT" variation="java"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ltcc/ltcc"          factory="TEXT" variation="original"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ltcc/cad_cone/"     factory="CAD"/>
+    <detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/ltcc/cad/"          factory="CAD"/>
+
+
+	<!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
+	<!-- NO FIELD 
+	<option name="SCALE_FIELD" value="clas12-torus-big, 0"/>
+	<option name="SCALE_FIELD" value="clas12-solenoid, 0"/> -->
+
+	<!-- 100% FIELD -->
+	<option name="SCALE_FIELD" value="clas12-torus-big, -1"/>
+	<option name="SCALE_FIELD" value="clas12-solenoid, 1"/>
+
+    	<!-- hall field  -->
+	<option name="HALL_FIELD"  value="clas12-solenoid"/>
+
+	<!-- fields, precise mode -->
+	<option name="FIELD_PROPERTIES" value="clas12-torus-big, 2*mm, G4ClassicalRK4, linear"/>
+	<option name="FIELD_PROPERTIES" value="clas12-solenoid,  1*mm, G4ClassicalRK4, linear"/>
+	<option name="MAX_FIELD_STEP" value="2"/>
+
+	<option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
+
+	<option name="OUTPUT"   value="evio, gemc_moller.evio"/>
+
+	<!--  Will print message every 10 events -->
+	<option name="PRINT_EVENT"    value="10" />
+
+	<!-- <option name="INPUT_GEN_FILE" value="LUND, /Users/nateMac/GEMC/lund/ep.lund"/>
+	<option name="NGENP" value="72"/> -->
+
+	<!-- beam conditions -->
+	<option name="BEAM_P"   value="e-, 10.6*GeV, 0.0*deg, 180.0*deg"/> 
+	<option name="BEAM_V"   value="(0, 0, -20)cm"/>
+	<option name="SPREAD_V" value="(0.3, 0)cm"/>
+	<option name="SPREAD_P" value="0*GeV, 0*deg, 180.0*deg"/>
+	<!-- <option name="BEAM_P"   value="proton, 90*MeV, 90.0*deg, 180.0*deg"/>  -->
+	
+
+	<option name="USE_GUI" value="1"/>
+	
+	<!-- create a slice visualization  -->
+	<option name="EXEC_MACRO" value="slice.vis"/>
+
+	<option name="N" value="1"/>
+	
+	<option name="RUNNO" value="10"/>
+
+	<!--  RF Signal needs event time window defined by LUMI_EVENT. 
+	      If Backround is activated make sure to use LUMI_EVENT below instead.
+	<option name="LUMI_EVENT"  value="0, 248.5*ns, 4*ns" />
+	<option name="RFSETUP"     value="0.499, 40, 20" /> -->
+
+
+
+	<!--  beam background. for 250 ns timewindow we have 124,000 e- on
+	      a LH2 target at 10^35 luminosity 
+	      I suggest in this case to set SAVE_ALL_MOTHERS to 0 
+	      or the many tracks will slow down the simulation a lot
+	 		For background studies use field in fast mode:
+	
+	<option name="LUMI_EVENT"     value="2000, 248.5*ns, 4*ns" />
+	<option name="LUMI_P"         value="e-, 10.6*GeV, 0*deg, 0*deg" />
+	<option name="LUMI_V"         value="(0.0, 0.0, -20.0)cm" />
+	<option name="LUMI_SPREAD_V"  value="(0.3, 0)cm" /> -->
+
+	
+
+
+</gcard>

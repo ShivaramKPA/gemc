@@ -1,0 +1,8 @@
+/vis/viewer/set/lineSegmentsPerCircle 120
+
+/vis/viewer/set/cutawayMode union
+/vis/viewer/addCutawayPlane 0 0 20 cm -0.001 -0.001 0
+
+/vis/viewer/set/viewpointThetaPhi 80 0 deg
+/vis/viewer/set/lightsThetaPhi 40 50
+/vis/viewer/zoom 1.0

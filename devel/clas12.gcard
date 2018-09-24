@@ -1,0 +1,81 @@
+<gcard>
+	<!-- target. Notice variation give the target type. Can be: lH2, lD2, ND3 -->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/targets/cad/" factory="CAD"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/targets/target" factory="TEXT" variation="cad"/>
+
+	<!-- central detectors 	-->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/cnd/cnd"               factory="TEXT" variation="original"/>
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/bst/bst"               factory="TEXT" variation="java"/>
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/micromegas/micromegas" factory="TEXT" variation="michel"/>
+
+
+	<!--ctof, cad  -->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ctof/ctof"      factory="TEXT" variation="cad"/>
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ctof/javacad/"  factory="CAD"/>
+
+	<!--high threshold cherenkov -->
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/htcc/htcc"      factory="TEXT" variation="original"/>
+
+	<!-- magnets -->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/magnets/solenoid" factory="TEXT" variation="original"/>
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/magnets/cad/"     factory="CAD" />
+
+	<!-- Beamline configuration: FT is used -->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ft/ft"                 factory="TEXT" variation="FTOn"/>
+   	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/beamline/cadBeamline/" factory="CAD"/>
+    <detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/beamline/vacuumLine/"  factory="CAD"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/beamline/beamline"     factory="TEXT" variation="FTOn"/>
+
+	
+	<!-- forward carriage -->
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/fc/forwardCarriage" factory="TEXT" variation="original"/>
+
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/dc/dc"              factory="TEXT" variation="java"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ftof/ftof"          factory="TEXT" variation="java"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ec/ec"              factory="TEXT" variation="java"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/pcal/pcal"          factory="TEXT" variation="java"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ltcc/ltcc"          factory="TEXT" variation="original"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ltcc/cad_cone/"     factory="CAD"/>
+	<detector name="/group/clas12/gemc/4a.2.3/experiments/clas12/ltcc/cad/"          factory="CAD"/>
+
+
+    	
+
+	<!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
+	<option name="SCALE_FIELD" value="clas12-torus-big, -1"/>
+	<option name="SCALE_FIELD" value="clas12-solenoid, 1"/>
+
+    	<!-- hall field  -->
+	<option name="HALL_FIELD"  value="clas12-solenoid"/>
+
+	<!-- fields, precise mode -->
+	<option name="FIELD_PROPERTIES" value="clas12-torus-big, 2*mm, G4ClassicalRK4, linear"/>
+	<option name="FIELD_PROPERTIES" value="clas12-solenoid,  1*mm, G4ClassicalRK4, linear"/>
+
+	<option name="SAVE_ALL_MOTHERS" value="0"/>
+	<option name="RECORD_MIRRORS"   value="1"/>
+
+	<option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
+
+	<option name="OUTPUT"   value="evio, /u/group/bonus12/simulated_data/gemc_100_72_07Jun2018.evio"/>
+
+	<!--  Will print message every 10 events -->
+	<option name="PRINT_EVENT"    value="10" />
+
+	<option name="INPUT_GEN_FILE" value="LUND, /u/home/nathand/GEMC/lund/ep.lund"/>
+	<option name="NGENP" value="72"/>
+
+	<!-- beam conditions -->
+	<!-- <option name="BEAM_P"   value="e-, 10.6*MeV, 20.0*deg, 45.0*deg"/> 
+	<option name="BEAM_P"   value="proton, 90*MeV, 90.0*deg, 180.0*deg"/>
+	<option name="SPREAD_P" value="10*MeV, 45*deg, 180.0*deg"/> -->
+	
+
+	<option name="USE_GUI" value="1"/>
+
+	<option name="N" value="1"/>
+	
+	<option name="RUNNO" value="10"/>
+
+
+</gcard>
