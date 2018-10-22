@@ -6,7 +6,7 @@
 <!-- <option name="ALLRAWS" value="rtpc"/> -->
 <option name="INTEGRATEDRAW" value="rtpc"/>
 <option name="SAVE_ALL_MOTHERS" value="3"/>
-<option name="BANK_VERBOSITY" value="1700"/>
+<!-- <option name="BANK_VERBOSITY" value="1700"/> -->
 
 <!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
 <!-- NO FIELD
@@ -14,7 +14,7 @@
 <option name="SCALE_FIELD" value="clas12-newSolenoid, 0"/> -->
 
 <!-- 100% FIELD -->
-<option name="SCALE_FIELD" value="clas12-newSolenoid, 1"/>
+<option name="SCALE_FIELD" value="clas12-newSolenoid, 0"/>
 
 <!-- hall field  -->
 <option name="HALL_FIELD"  value="clas12-newSolenoid"/>
@@ -25,7 +25,7 @@
 
 <option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
 
-<option name="OUTPUT"   value="evio, gemc_Eloss.evio"/>
+<option name="OUTPUT"   value="evio, gemc_Eloss_phicut.evio"/>
 
 <!--  Will print message every 10 events -->
 <option name="PRINT_EVENT"    value="100" />
@@ -39,19 +39,19 @@
 <option name="BEAM_V"   value="(0, 0, 0)cm"/>
 <option name="SPREAD_V" value="(0.3, 18)cm"/> -->
 
-<option name="BEAM_P"   value="e-, 1.44*GeV, 18.5*deg, 180.0*deg"/>
-<option name="SPREAD_P" value="0.96*GeV, 7.2*deg, 180.0*deg"/>
-<option name="BEAM_V"   value="(0, 0, -20)cm"/>
+<option name="BEAM_P"   value="e-, 4.5*GeV, 70*deg, 7.0*deg"/>
+<option name="SPREAD_P" value="3.5*GeV, 20*deg, 3.0*deg"/>
+<option name="BEAM_V"   value="(0, 0, -10)cm"/>
 <option name="SPREAD_V" value="(0, 0)cm"/>
 
 
 
-<option name="USE_GUI" value="1"/>
+<option name="USE_GUI" value="0"/>
 
 <!-- create a slice visualization 
 <option name="EXEC_MACRO" value="slice.vis"/> -->
 
-<option name="N" value="1"/>
+<option name="N" value="10000"/>
 
 <option name="RUNNO" value="11"/>
 

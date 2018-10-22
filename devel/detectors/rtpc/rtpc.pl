@@ -83,6 +83,12 @@ my $Tboard_length = 106.8; # mm
 my $Tboard_thick = 0.279; # mm (11 mils)
 my @Tboard_color = ('ace4d2');
 
+# Downstream end-plate parameters
+my $dsep_radius = 80.0; # mm
+my $dsep_thick = 5.0; # mm
+my @dsep_color = ('c9d6cf');
+
+
 
 # mother volume
 sub make_rtpc
@@ -117,6 +123,8 @@ sub make_target
 	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
 	print_det(\%configuration, \%detector);
 
 }
@@ -147,6 +155,8 @@ sub make_layers
 	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
 	print_det(\%configuration, \%detector);
 }
 
@@ -168,6 +178,8 @@ sub make_buffer_volume
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
     $detector{"style"}       = 1;
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 
@@ -190,6 +202,8 @@ sub make_buffer2_volume
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
     $detector{"style"}       = 1;
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 
@@ -223,7 +237,9 @@ sub make_gems
 	$detector{"description"} = "gem_".$gemN."_layer_".$layer;
 	$detector{"color"}       = $color;
 	$detector{"type"}        = "Tube";
-	$detector{"style"}       = 1;	
+	$detector{"style"}       = 1;
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
 	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	print_det(\%configuration, \%detector);
@@ -248,8 +264,8 @@ sub make_drift_volume
 	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
-    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
 	print_det(\%configuration, \%detector);
 }
 
@@ -354,6 +370,32 @@ sub make_protcircuit
     print_det(\%configuration, \%detector);
 }
 
+# Down Stream End Plates (DSEP)
+sub make_dsep
+{
+    my $dsep_zpos = $z_half + 0.001;
+    my $rmin  = 0.0;
+    my $rmax  = $dsep_radius;
+    my $phistart = 0;
+    my $pspan = 360;
+    my %detector = init_det();
+    my $mate  = "G10";
+    
+    $detector{"name"} = "dsep";
+    
+    $detector{"mother"}      = "rtpc";
+    $detector{"description"} = "Down Stream End Plate";
+    $detector{"color"}       = "c9d6cf";
+    $detector{"type"}        = "Tube";
+    $detector{"pos"}         = "0*mm 0*mm $dsep_zpos*mm";
+    $detector{"dimensions"}  = "$rmin*mm $rmax*mm $dsep_thick*mm $phistart*deg $pspan*deg";
+    $detector{"material"}    = $mate;
+    $detector{"style"}       = 1;
+    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    print_det(\%configuration, \%detector);
+}
+
 make_rtpc();
 
 make_target();
@@ -387,5 +429,7 @@ for(my $board = 0; $board < 45; $board++){
 for(my $circuit = 0; $circuit < 45; $circuit++){
     make_protcircuit($circuit);
 }
+
+make_dsep();
 
 
