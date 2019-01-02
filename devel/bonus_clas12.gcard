@@ -68,15 +68,15 @@
 	<!--  Will print message every 10 events -->
 	<option name="PRINT_EVENT"    value="100" />
 
-	<!-- <option name="INPUT_GEN_FILE" value="LUND, /Users/nateMac/GEMC/lund/ep.lund"/>
-	<option name="NGENP" value="72"/> -->
+	<option name="INPUT_GEN_FILE" value="LUND, lund/ep.lund"/>
+	<option name="NGENP" value="72"/> 
 
 	<!-- beam conditions -->
-	<!-- <option name="BEAM_P"   value="e-, 10.6*GeV, 0.0*deg, 180.0*deg"/> -->
+	<!-- <option name="BEAM_P"   value="e-, 10.6*GeV, 0.0*deg, 180.0*deg"/> 
     <option name="BEAM_P"   value="proton, 90*MeV, 0.0*deg, 180.0*deg"/>
     <option name="SPREAD_P" value="10*MeV, 45*deg, 180.0*deg"/>
 	<option name="BEAM_V"   value="(0, 0, 0)cm"/>
-	<option name="SPREAD_V" value="(0.3, 18)cm"/>
+	<option name="SPREAD_V" value="(0.3, 18)cm"/> -->
 
     <!-- <option name="BEAM_P"   value="e-, 10.6*GeV, 0.0*deg, 180.0*deg"/>
     <option name="SPREAD_P" value="0*GeV, 0*deg, 180.0*deg"/>
@@ -85,12 +85,12 @@
 
 
 
-	<option name="USE_GUI" value="0"/>
+	<option name="USE_GUI" value="1"/>
 	
-	<!-- create a slice visualization 
-	<option name="EXEC_MACRO" value="slice.vis"/> -->
+	<!-- create a slice visualization -->
+	<option name="EXEC_MACRO" value="slice.vis"/>
 
-	<option name="N" value="10000"/>
+	<option name="N" value="1"/>
 	
 	<option name="RUNNO" value="11"/>
 

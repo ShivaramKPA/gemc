@@ -87,9 +87,6 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
         
     }
     
-    // to turn off time-shifting use this
-    //timeShift_map.insert(make_pair(aHit->GetTId(),0.));
-    
 	double LposX=0.;
 	double LposY=0.;
 	double LposZ=0.;

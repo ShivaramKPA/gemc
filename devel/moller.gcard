@@ -57,14 +57,14 @@
 	<!-- <option name="BEAM_P"   value="proton, 90*MeV, 90.0*deg, 180.0*deg"/>  -->
 	
 
-	<option name="USE_GUI" value="1"/>
+	<option name="USE_GUI" value="0"/>
 	
 	<!-- create a slice visualization --> 
 	<option name="EXEC_MACRO" value="slice.vis"/>
 
-	<option name="N" value="10"/>
+	<option name="N" value="1000"/>
 	
-	<option name="RUNNO" value="10"/>
+	<option name="RUNNO" value="11"/>
 
 	<!--  RF Signal needs event time window defined by LUMI_EVENT. 
 	      If Backround is activated make sure to use LUMI_EVENT below instead.
