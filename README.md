@@ -18,3 +18,8 @@ To use:
    
 5. Then run:
    source $JLAB_ROOT/2.2/ce/jlab.csh
+   
+6. To change where gemc looks for the magnetic fields, can run:
+   setenv FIELD_DIR $JLAB_ROOT/noarch/data
+   
+   to be wherever you want.
