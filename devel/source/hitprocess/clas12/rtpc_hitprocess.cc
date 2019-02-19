@@ -22,13 +22,42 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
     // parameters to change for gas mixture and potential
     // gas mixture = He:CO2 at 80:20
     // potential = 3500V
-    a_t=1741.179712;
-    b_t=-1.25E+02;
+    
+    // Old parameters
+    //a_t=1741.179712;
+    //b_t=-1.25E+02;
+    //a_phi=0.161689123;
+    //b_phi=0.023505021;
+    
+    // -------- all in [cm] ---------- //
+    double a_t1 = -2.48491E-4;
+    double a_t2 = 2.21413E-4;
+    double a_t3 = -3.11195E-3;
+    double a_t4 = -2.75206E-1;
+    double a_t5 = 1.74281E3;
+    
+    double b_t1 = 2.48873E-5;
+    double b_t2 = -1.19976E-4;
+    double b_t3 = -3.75962E-3;
+    double b_t4 = 5.33100E-2;
+    double b_t5 = -1.25647E2;
+    
+    double a_phi1 = -3.32718E-8;
+    double a_phi2 = 1.92110E-7;
+    double a_phi3 = 2.16919E-6;
+    double a_phi4 = -8.10207E-5;
+    double a_phi5 = 1.68481E-1;
+    
+    double b_phi1 = -3.23019E-9;
+    double b_phi2 = -6.92075E-8;
+    double b_phi3 = 1.24731E-5;
+    double b_phi4 = 2.57684E-5;
+    double b_phi5 = 2.10680E-2;
+    // ------------------------------- //
+    
     c_t=388.7449859;
     d_t=-4.33E+01;
     
-    a_phi=0.161689123;
-    b_phi=0.023505021;
     c_phi=6.00E-06;
     d_phi=2.00E-06;
     
@@ -107,11 +136,19 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
 	      LposZ = Lpos[s].z();
 
               if(sqrt(LposX*LposX+LposY*LposY)<30. || sqrt(LposX*LposX+LposY*LposY)>70.) continue;
-              if(LposZ<-200. || LposZ>200.) continue;
+              if(LposZ<-188.0 || LposZ>(RTPC_L/2.0)) continue;
             
 	      DiffEdep = Edep[s];
 
-
+            z_cm = LposZ/10.0;
+            
+            // all in cm
+            a_t=a_t1*(pow(z_cm,4)) + a_t2*(pow(z_cm,3)) + a_t3*(pow(z_cm,2)) + a_t4*z_cm + a_t5;
+            b_t=b_t1*(pow(z_cm,4)) + b_t2*(pow(z_cm,3)) + b_t3*(pow(z_cm,2)) + b_t4*z_cm + b_t5;
+            
+            a_phi=a_phi1*(pow(z_cm,4)) + a_phi2*(pow(z_cm,3)) + a_phi3*(pow(z_cm,2)) + a_phi4*z_cm + a_phi5;
+            b_phi=b_phi1*(pow(z_cm,4)) + b_phi2*(pow(z_cm,3)) + b_phi3*(pow(z_cm,2)) + b_phi4*z_cm + b_phi5;
+            
 	      double r0,phi0_rad;
 	      //convert (x0,y0,z0) into (r0,phi0,z0)
           r0=(sqrt(LposX*LposX+LposY*LposY))/10.0;  //in cm
@@ -175,6 +212,7 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
           dgtz["ADC"]    = (int) adc;
           dgtz["Time"]   = tdc;
           dgtz["hitn"]   = (int) hitn;
+          dgtz["TimeShift"] = shift_t;
     
 	    } // end step
 

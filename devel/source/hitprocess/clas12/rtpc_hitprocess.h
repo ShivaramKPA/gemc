@@ -54,6 +54,7 @@ public:
   	 float phi_2GEM2, phi_2GEM3, phi_2PAD, phi_2END;
    	 float sigma_phi_2GEM2, sigma_phi_2GEM3, sigma_phi_2PAD, sigma_phi_gap;
     
+    float z_cm;
    	 float TPC_TZERO;
     
     map<int, double> timeShift_map;

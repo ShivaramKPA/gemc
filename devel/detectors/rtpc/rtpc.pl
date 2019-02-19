@@ -45,6 +45,7 @@ define_hit();
 ###########################################################################################
 # All dimensions in mm
 my $z_half = 192.0;
+#my $z_half = 25.0;
 my $gap = 0.001;
 
 #  Target, Ground foil, Cathod foil
@@ -288,8 +289,8 @@ sub make_readout_layer
 	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
-    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
 	print_det(\%configuration, \%detector);
 }
 
@@ -313,8 +314,8 @@ sub make_ers_layer
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
     $detector{"style"}       = 1;
-    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 
@@ -339,8 +340,8 @@ sub make_boards
     $detector{"style"}       = 1;
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
-    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 
@@ -365,8 +366,8 @@ sub make_protcircuit
     $detector{"style"}       = 1;
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
-    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 
@@ -391,8 +392,8 @@ sub make_dsep
     $detector{"dimensions"}  = "$rmin*mm $rmax*mm $dsep_thick*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
     $detector{"style"}       = 1;
-    $detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
-    $detector{"hit_type"}     = "rtpc"; ## HitProcess definition
+    #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
+    #$detector{"hit_type"}     = "rtpc"; ## HitProcess definition
     print_det(\%configuration, \%detector);
 }
 

@@ -45,7 +45,7 @@ FMT_mothervol_InnerRadius 	|   22.000 | mm	 | Mother volume inner radius					| F
 FMT_mothervol_OutRadius 	|  250.000 | mm  | Mother volume outer radius 					| Frederic Georges	| frederic.georges@cea.fr     | - | - | - | 22/07/2015
 FMT_mothervol_zmin		|  298.300 | mm  | Mother volume zmin (BMT_mothervol_zmax set to same value)	| Michel Garcon		| michel.garcon@cea.fr        | - | - | - | 09/08/2016
 FMT_mothervol_zmax		|  373.000 | mm  | Mother volume zmax						| Michel Garcon		| michel.garcon@cea.fr        | - | - | - | 09/08/2016
-FMT_nlayer		 	|    6	   | na  | Number of layers     					| Frederic Georges	| frederic.georges@cea.fr     | - | - | - | 22/07/2015
+FMT_nlayer		 	|    3	   | na  | Number of layers     					| Frederic Georges	| frederic.georges@cea.fr     | - | - | - | 22/07/2015
 FMT_zpos_layer1 		|  300.300 | mm  | Position of the first layer of MM center (in z) 		| Michel Garcon		| michel.garcon@cea.fr        | - | - | - | 14/11/2016
 FMT_zpos_layer2 		|  312.200 | mm  | Position of the second layer of MM center (in z) 		| Michel Garcon		| michel.garcon@cea.fr        | - | - | - | 14/11/2016
 FMT_zpos_layer3 		|  324.100 | mm  | Position of the third layer of MM center (in z) 		| Michel Garcon		| michel.garcon@cea.fr        | - | - | - | 14/11/2016

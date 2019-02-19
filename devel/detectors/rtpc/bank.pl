@@ -53,8 +53,9 @@ sub define_bank
 	insert_bank_variable(\%configuration, $bankname, "bankid", $bankId, "Di", "$bankname bank ID");
 	insert_bank_variable(\%configuration, $bankname, "CellID",       1, "Di", "Pad CellId");
 	insert_bank_variable(\%configuration, $bankname, "ADC",          2, "Dd", "ADC");	
-	insert_bank_variable(\%configuration, $bankname, "Time",         3, "Dd", "Time");
-	insert_bank_variable(\%configuration, $bankname, "hitn",         4, "Di", "hit number");
+	insert_bank_variable(\%configuration, $bankname, "Time",         3, "Dd", "Time [ns]");
+    insert_bank_variable(\%configuration, $bankname, "TimeShift",    4, "Dd", "Time Shift [ns]");
+	insert_bank_variable(\%configuration, $bankname, "hitn",         99, "Di", "hit number");
 }
 
 define_bank();

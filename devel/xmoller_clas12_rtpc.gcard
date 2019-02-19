@@ -11,6 +11,7 @@
 
 	<!-- central detectors -->
 	<detector name="detectors/cnd/cnd"               factory="TEXT" variation="original"/>
+    <detector name="detectors/micromegas/micromegas" factory="TEXT" variation="michel"/>
 
 	<!--ctof, cad  -->
 	<detector name="detectors/ctof/ctof"      factory="TEXT" variation="cad"/>
@@ -68,7 +69,7 @@
 
 	<option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
 
-	<option name="OUTPUT"   value="evio, gemc_moller.evio"/>
+	<option name="OUTPUT"   value="evio, gemc_moller_BONuS12targetONLY.evio"/>
 
 
 	<!--  Will print message every 10 events -->
@@ -95,11 +96,11 @@
     <option name="LUMI_V"         value="(0.3, 0.0, -20.0)cm" />
     <option name="LUMI_SPREAD_V"  value="(0.03, 0.03)cm" />
 
-	<!-- <option name="EXEC_MACRO" value="slice.vis"/> -->
+	<option name="EXEC_MACRO" value="slice.vis"/>
 
-	<option name="USE_GUI" value="0"/>
+	<option name="USE_GUI" value="1"/>
 
-	<option name="N" value="10"/>
+	<option name="N" value="0"/>
 	
 	<option name="RUNNO" value="11"/>
 

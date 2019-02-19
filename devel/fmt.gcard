@@ -1,6 +1,6 @@
 <gcard>
 
-	
+
 	<detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/rtpc/rtpc" factory="TEXT" variation="original"/>
 
 	<!-- <option name="ALLRAWS" value="rtpc"/> -->
@@ -10,21 +10,17 @@
 	
     <detector name="detectors/micromegas/micromegas" factory="TEXT" variation="michel"/>
 
-    <!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
-	<!-- NO FIELD 
-	<option name="SCALE_FIELD" value="clas12-torus-big, 0"/>
-	<option name="SCALE_FIELD" value="clas12-solenoid, 0"/> -->
 
-	<!-- 100% FIELD -->
-	<option name="SCALE_FIELD" value="clas12-torus-big, -1"/>
-	<option name="SCALE_FIELD" value="clas12-solenoid, 1"/>
+    <!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
+    <option name="SCALE_FIELD" value="TorusSymmetric, -1"/>
+    <option name="SCALE_FIELD" value="clas12-newSolenoid, 1"/>
 
     <!-- hall field  -->
-	<option name="HALL_FIELD"  value="clas12-solenoid"/>
+    <option name="HALL_FIELD"  value="clas12-newSolenoid"/>
 
-	<!-- fields, precise mode -->
-	<option name="FIELD_PROPERTIES" value="clas12-torus-big, 2*mm, G4ClassicalRK4, linear"/>
-	<option name="FIELD_PROPERTIES" value="clas12-solenoid,  1*mm, G4ClassicalRK4, linear"/>
+    <!-- fields, precise mode -->
+    <option name="FIELD_PROPERTIES" value="TorusSymmetric, 2*mm, G4ClassicalRK4, linear"/>
+    <option name="FIELD_PROPERTIES" value="clas12-newSolenoid,  1*mm, G4ClassicalRK4, linear"/>
 	<option name="MAX_FIELD_STEP" value="2"/>
 
 	<option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
@@ -50,9 +46,9 @@
 	<!-- create a slice visualization  -->
 	<option name="EXEC_MACRO" value="slice.vis"/>
 
-	<option name="N" value="5"/>
+	<option name="N" value="0"/>
 	
-	<option name="RUNNO" value="10"/>
+	<option name="RUNNO" value="11"/>
 
 	<!--  RF Signal needs event time window defined by LUMI_EVENT. 
 	      If Backround is activated make sure to use LUMI_EVENT below instead.

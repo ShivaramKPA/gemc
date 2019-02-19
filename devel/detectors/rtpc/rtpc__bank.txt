@@ -1,10 +1,12 @@
                 rtpc  |              bankid  |                                      rtpc bank ID  | 1700   |                  Di  
                 rtpc  |              CellID  |                                        Pad CellId  |    1   |                  Di  
                 rtpc  |                 ADC  |                                               ADC  |    2   |                  Dd  
-                rtpc  |                Time  |                                              Time  |    3   |                  Dd  
-                rtpc  |                hitn  |                                        hit number  |    4   |                  Di  
+                rtpc  |                Time  |                                         Time [ns]  |    3   |                  Dd  
+                rtpc  |           TimeShift  |                                   Time Shift [ns]  |    4   |                  Dd  
+                rtpc  |                hitn  |                                        hit number  |   99   |                  Di  
                 rtpc  |              bankid  |                                      rtpc bank ID  | 1700   |                  Di  
                 rtpc  |              CellID  |                                        Pad CellId  |    1   |                  Di  
                 rtpc  |                 ADC  |                                               ADC  |    2   |                  Dd  
-                rtpc  |                Time  |                                              Time  |    3   |                  Dd  
-                rtpc  |                hitn  |                                        hit number  |    4   |                  Di  
+                rtpc  |                Time  |                                         Time [ns]  |    3   |                  Dd  
+                rtpc  |           TimeShift  |                                   Time Shift [ns]  |    4   |                  Dd  
+                rtpc  |                hitn  |                                        hit number  |   99   |                  Di  
