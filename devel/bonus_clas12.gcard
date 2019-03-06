@@ -2,7 +2,7 @@
 
 
     <!-- BONUS12 RTPC -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/rtpc/rtpc" factory="TEXT" variation="original"/>
+    <detector name="detectors/rtpc/rtpc" factory="TEXT" variation="original"/>
 
     <!-- <option name="ALLRAWS" value="rtpc"/> -->
     <option name="INTEGRATEDRAW" value="rtpc"/>
@@ -10,34 +10,34 @@
     <!-- CLAS12 DETECTORS -->
 
     <!-- central detectors -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/cnd/cnd"               factory="TEXT" variation="original"/>
+    <detector name="detectors/cnd/cnd"               factory="TEXT" variation="original"/>
 
     <!--ctof, cad  -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/ctof/ctof"      factory="TEXT" variation="cad"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ctof/javacad/"  factory="CAD"/>
+    <detector name="detectors/ctof/ctof"      factory="TEXT" variation="cad"/>
+    <detector name="detectors/ctof/javacad/"  factory="CAD"/>
 
     <!--high threshold cherenkov -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/htcc/htcc"      factory="TEXT" variation="original"/>
+    <detector name="detectors/htcc/htcc"      factory="TEXT" variation="original"/>
 
     <!-- magnets -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/magnets/solenoid" factory="TEXT" variation="original"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/magnets/cad/"     factory="CAD" />
+    <detector name="detectors/magnets/solenoid" factory="TEXT" variation="original"/>
+    <detector name="detectors/magnets/cad/"     factory="CAD" />
 
     <!-- Beamline configuration: FT is NOT used -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/ft/ft"                 factory="TEXT" variation="FTOff"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/beamline/cadBeamlineFTOFF/" factory="CAD"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/beamline/vacuumLine/"  factory="CAD"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/beamline/beamline"     factory="TEXT" variation="FTOff"/>
+    <detector name="detectors/ft/ft"                 factory="TEXT" variation="FTOff"/>
+    <detector name="detectors/beamline/cadBeamlineFTOFF/" factory="CAD"/>
+    <detector name="detectors/beamline/vacuumLine/"  factory="CAD"/>
+    <detector name="detectors/beamline/beamline"     factory="TEXT" variation="FTOff"/>
 
     <!-- forward carriage -->
-    <detector name="/u/home/nathand/gemc/devel/detectors/fc/forwardCarriage" factory="TEXT" variation="TorusSymmetric"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/dc/dc"              factory="TEXT" variation="java"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ftof/ftof"          factory="TEXT" variation="java"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ec/ec"              factory="TEXT" variation="java"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/pcal/pcal"          factory="TEXT" variation="java"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ltcc/ltcc"          factory="TEXT" variation="original"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ltcc/cad_cone/"     factory="CAD"/>
-    <detector name="/u/home/nathand/gemc/devel/detectors/ltcc/cad/"          factory="CAD"/>
+    <detector name="detectors/fc/forwardCarriage" factory="TEXT" variation="TorusSymmetric"/>
+    <detector name="detectors/dc/dc"              factory="TEXT" variation="java"/>
+    <detector name="detectors/ftof/ftof"          factory="TEXT" variation="java"/>
+    <detector name="detectors/ec/ec"              factory="TEXT" variation="java"/>
+    <detector name="detectors/pcal/pcal"          factory="TEXT" variation="java"/>
+    <detector name="detectors/ltcc/ltcc"          factory="TEXT" variation="original"/>
+    <detector name="detectors/ltcc/cad_cone/"     factory="CAD"/>
+    <detector name="detectors/ltcc/cad/"          factory="CAD"/>
 
     <!-- production threshold for passive volumes -->
     <!-- beamline shielding: 10cm -->
@@ -48,12 +48,6 @@
 
     <!-- torus magnet: 10cm -->
     <option name="PRODUCTIONCUTFORVOLUMES" value="BoreShield, CenterTube, DownstreamShieldingPlate, DownstreamVacuumJacket, WarmBoreTube, apex, Shield1, Shield2, Shield3, Shield4, Shield5, Shield6, Shield7, shell1a, shell1b, shell2a, shell2b, shell3a, shell3b, shell4a, shell4b, shell5a, shell5b, shell6a, shell6b, 20" />
-
-
-    <!--  FMT is removed in 4a.2.5
-    <detector name="FMT">
-    <existence exist="no" />
-    </detector> -->
 
     <!-- you can scale the fields here. Remember torus -1 means e- INBENDING  -->
     <option name="SCALE_FIELD" value="TorusSymmetric, -1"/>
@@ -68,10 +62,10 @@
 
     <option name="PHYSICS" value="FTFP_BERT + STD + Optical"/>
 
-	<option name="OUTPUT"   value="evio, gemc_100_20_08Jan2018.evio"/>
+	<option name="OUTPUT"   value="evio, gemc_5_40_04Mar2019.evio"/>
 
 	<!--  Will print message every 10 events -->
-	<option name="PRINT_EVENT"    value="100" />
+	<option name="PRINT_EVENT"    value="10" />
 
 	<option name="INPUT_GEN_FILE" value="LUND, lund/ep_20.lund"/>
 	<option name="NGENP" value="20"/>
@@ -94,7 +88,7 @@
 	<!-- create a slice visualization
 	<option name="EXEC_MACRO" value="slice.vis"/> -->
 
-	<option name="N" value="100"/>
+	<option name="N" value="5"/>
 	
 	<option name="RUNNO" value="11"/>
 

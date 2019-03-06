@@ -112,7 +112,8 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
     // -------------------------- TIME SHIFT for non-primary tracks ---------------------------
     if(aHit->GetTId() != timeShift_map.cend()->first){
         if(aHit->GetTId()>2) timeShift_map.insert(make_pair(aHit->GetTId(),G4RandFlat::shoot(-7000.,7000.)));
-        else timeShift_map.insert(make_pair(aHit->GetTId(),0.));
+        else if(aHit->GetTId()<3) timeShift_map.insert(make_pair(aHit->GetTId(),0.));
+        else timeShift_map.insert(make_pair(aHit->GetTId(),G4RandFlat::shoot(-7000.,7000.)));
         
     }
     
@@ -136,7 +137,7 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
 	      LposZ = Lpos[s].z();
 
               if(sqrt(LposX*LposX+LposY*LposY)<30. || sqrt(LposX*LposX+LposY*LposY)>70.) continue;
-              if(LposZ<-188.0 || LposZ>(RTPC_L/2.0)) continue;
+              if(LposZ<-(RTPC_L/2.0) || LposZ>(RTPC_L/2.0)) continue;
             
 	      DiffEdep = Edep[s];
 
@@ -192,6 +193,7 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
 	      if( phi_rad>2.0*PI )  phi_rad-=2.0*PI;
 
             shift_t = timeShift_map.find(aHit->GetTId())->second;
+            
             tdc=t_s2pad+t_gap+shift_t;
             adc=DiffEdep;
 
@@ -201,7 +203,7 @@ map<string, double> rtpc_HitProcess :: integrateDgt(MHit* aHit, int hitn)
             float z_shift = row%4;
 
             if( z_pos+RTPC_L/2.0 < z_shift ){
-              continue;
+              chan = -1;
             }
             int col = (int) ((z_pos-z_shift+RTPC_L/2.0)/PAD_L);
             int Num_of_Col = (int) (RTPC_L/PAD_L);

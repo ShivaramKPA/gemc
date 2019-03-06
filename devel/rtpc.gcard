@@ -11,6 +11,7 @@
 	<!-- CLAS12 DETECTORS -->
 	<!-- central detectors
 	<detector name="/Users/nateMac/jlab_software/2.2/gemc/devel/detectors/cnd/cnd"               factory="TEXT" variation="original"/> -->
+    <detector name="detectors/micromegas/micromegas" factory="TEXT" variation="michel"/>
 	
 
 	<!--ctof, cad
@@ -59,8 +60,8 @@
 
 	<option name="USE_GUI" value="1"/>
 	
-	<!-- create a slice visualization 
-	<option name="EXEC_MACRO" value="slice.vis"/> -->
+	<!-- create a slice visualization --> 
+	<option name="EXEC_MACRO" value="slice.vis"/>
 
 	<option name="N" value="0"/>
 	

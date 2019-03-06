@@ -45,7 +45,7 @@ define_hit();
 ###########################################################################################
 # All dimensions in mm
 my $z_half = 192.0;
-#my $z_half = 25.0;
+my @zhalf = ($z_half + 50.0, $z_half, $z_half);
 my $gap = 0.001;
 
 #  Target, Ground foil, Cathod foil
@@ -85,9 +85,11 @@ my $Tboard_thick = 0.279; # mm (11 mils)
 my @Tboard_color = ('ace4d2');
 
 # Downstream end-plate parameters
-my $dsep_radius = 80.0; # mm
-my $dsep_thick = 5.0; # mm
-my @dsep_color = ('c9d6cf');
+my @dsep_rmin = (0, 3.0551, 23.001); # mm
+my @dsep_rmax = (3.055, 23.00, 80.0); # mm
+my @dsep_thick = (0.015, 1.0, 1.0); # mm
+my @dsep_color = ('330099', '000000', 'c9d6cf');
+my @dsep_mat = ('G4_Al', "G10", "G10");
 
 
 
@@ -115,13 +117,14 @@ sub make_target
 	my $pspan = 360;
 	my $mate  = "DeuteriumTargetGas";
 	my %detector = init_det();
+    my $z_tar = $zhalf[0];
 
 	$detector{"name"} = "DeuteriumTarget";
 	$detector{"mother"}      = "rtpc";
 	$detector{"description"} = "7 atm deuterium target gas";
 	$detector{"color"}       = "a54382";
 	$detector{"type"}        = "Tube";
-	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
+	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_tar*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
     #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
@@ -146,14 +149,15 @@ sub make_layers
     # cathode $layer==2
 	$rmin  = $radius[$layer];
 	$rmax  = $rmin + $thickness[$layer];
-	$mate  = $layer_mater[$layer];		
-	
+	$mate  = $layer_mater[$layer];
+    my $z_lay = $zhalf[$layer];
+    
 	$detector{"name"} = "layer_".$layer;
 	$detector{"mother"}      =  "rtpc";
 	$detector{"description"} = "Layer ".$layer;
 	$detector{"color"}       = $layer_color[$layer];
 	$detector{"type"}        = "Tube";
-	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_half*mm $phistart*deg $pspan*deg";
+	$detector{"dimensions"}  = "$rmin*mm $rmax*mm $z_lay*mm $phistart*deg $pspan*deg";
 	$detector{"material"}    = $mate;
 	$detector{"style"}       = 1;
     #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
@@ -374,22 +378,26 @@ sub make_protcircuit
 # Down Stream End Plates (DSEP)
 sub make_dsep
 {
-    my $dsep_zpos = $z_half + 0.001;
-    my $rmin  = 0.0;
-    my $rmax  = $dsep_radius;
+    my $dsepL = shift;
+    
+    my $dsep_zpos = $zhalf[$dsepL] + 0.001;
+    my $rmin  = $dsep_rmin[$dsepL];
+    my $rmax  = $dsep_rmax[$dsepL];
     my $phistart = 0;
     my $pspan = 360;
     my %detector = init_det();
-    my $mate  = "G10";
+    my $mate  = $dsep_mat[$dsepL];
+    my $dsepThick = $dsep_thick[$dsepL];
+    my $dsepColor = $dsep_color[$dsepL];
     
-    $detector{"name"} = "dsep";
+    $detector{"name"} = "dsep_".$dsepL;
     
     $detector{"mother"}      = "rtpc";
-    $detector{"description"} = "Down Stream End Plate";
-    $detector{"color"}       = "c9d6cf";
+    $detector{"description"} = "Down Stream End Plate Layer ".$dsepL;
+    $detector{"color"}       = $dsepColor;
     $detector{"type"}        = "Tube";
     $detector{"pos"}         = "0*mm 0*mm $dsep_zpos*mm";
-    $detector{"dimensions"}  = "$rmin*mm $rmax*mm $dsep_thick*mm $phistart*deg $pspan*deg";
+    $detector{"dimensions"}  = "$rmin*mm $rmax*mm $dsepThick*mm $phistart*deg $pspan*deg";
     $detector{"material"}    = $mate;
     $detector{"style"}       = 1;
     #$detector{"sensitivity"}  = "rtpc"; ## HitProcess definition
@@ -430,7 +438,7 @@ for(my $board = 0; $board < 45; $board++){
 for(my $circuit = 0; $circuit < 45; $circuit++){
     make_protcircuit($circuit);
 }
-
-make_dsep();
-
+for(my $dsep_layer = 0; $dsep_layer < 3; $dsep_layer++){
+    make_dsep($dsep_layer);
+}
 
