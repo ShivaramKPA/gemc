@@ -102,7 +102,7 @@ sub make_rtpc
 	$detector{"description"} = "Radial Time Projecion Chamber";
 	$detector{"color"}       = "eeeegg";
 	$detector{"type"}        = "Tube";
-	$detector{"dimensions"}  = "0*mm 190.0*mm 210.0*mm 0*deg 360*deg";
+	$detector{"dimensions"}  = "0*mm 190.0*mm 255.0*mm 0*deg 360*deg";
 	$detector{"material"}    = "G4_He";
 	$detector{"visible"}     = 0;
 	print_det(\%configuration, \%detector);
